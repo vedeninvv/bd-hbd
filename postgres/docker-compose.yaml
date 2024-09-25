@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  postgres_warehouse:
+    image: postgres:latest
+    container_name: postgres_warehouse
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 777
+    ports:
+      - "5434:5434"
+    networks:
+      - my_custom_network
+    command: -p 5434
+networks:
+  my_custom_network:
+    external: true
